@@ -78,7 +78,7 @@ var handleDefaults = function (answers) {
 // The default gulp task is ran when slush is executed
 gulp.task('default', function (done) {
   inquirer.prompt([{
-      name   : 'name',
+      name   : 'appName',
       message: 'Give your app a name',
       default: defaults.appName
     }, {
