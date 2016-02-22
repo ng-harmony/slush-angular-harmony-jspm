@@ -9,8 +9,7 @@ var gulp      = require('gulp'),
     template  = require('gulp-template'),
     spawn     = require('child_process').spawn,
     gutil     = require('gulp-util'),
-    shell     = require('gulp-shell'),
-    runseq    = require('run-sequence');
+    shell     = require('gulp-shell');
 
 var defaults = (function () {
   var homeDir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE,
@@ -197,7 +196,3 @@ gulp.task('default', function (done) {
       gulp.src("package.json").pipe(shell(deps, { interactive: true }));
     });
 });
-/*
-gulp.task("default", function (done) {
-  runseq("main", "postinstall", done);
-});/*
