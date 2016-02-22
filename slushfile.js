@@ -140,7 +140,13 @@ gulp.task('default', function (done) {
         'src'     : answers.sourceBase
       };
 
-      dependencies = ["bower install", "jspm install github:ng-harmony/ng-harmony"];
+      console.log(answers.packages);
+      answers.packages.forEach(function (package) {
+        console.log(package);
+      })
+      console.dir(answers.packages);
+
+      dependencies = ["npm install --save-dev jspm", "bower install", "jspm install", "jspm install github:ng-harmony/ng-harmony"];
       if (answers.packages["ng-harmony-annotate"]) {
         dependencies.push("jspm install github:ng-harmony/ng-harmony-annotate")
       }
