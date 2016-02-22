@@ -198,7 +198,7 @@ gulp.task('default', function (done) {
           child.stderr.on('data', function(data){
             gutil.log(gutil.colors.red(data));
           });
-        });
+        })
         .pipe(shell(dependencies, {
           templateData: {}
         }));
