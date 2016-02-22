@@ -28,11 +28,12 @@
     "directories": {
       "baseURL": "app/src"
     },
+    "configFile": "system.config.js",
     "dependencies": {},
     "devDependencies": {
-      "babel": "npm:babel-core@^6.1.2",
-      "babel-runtime": "npm:babel-runtime@^6.0.14",
-      "core-js": "npm:core-js@^1.2.5"
+      "babel": "npm:babel-core@^5.8.35",
+      "babel-runtime": "npm:babel-runtime@^5.8.35",
+      "core-js": "npm:core-js@^1.1.4"
     }
   }
 }

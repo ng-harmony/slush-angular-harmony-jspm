@@ -1,6 +1,6 @@
 {
   "name": "slush-angular-harmony-jspm",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "description": "Slush generator for ng-harmony apps plus jspm",
   "license": "MIT",
   "author": {
