@@ -140,22 +140,10 @@ gulp.task('default', function (done) {
         'src'     : answers.sourceBase
       };
 
-      console.log(answers.packages);
-      answers.packages.forEach(function (package) {
-        console.log(package);
-      })
-      console.dir(answers.packages);
-
       dependencies = ["npm install --save-dev jspm", "bower install", "jspm install", "jspm install github:ng-harmony/ng-harmony"];
-      if (answers.packages["ng-harmony-annotate"]) {
-        dependencies.push("jspm install github:ng-harmony/ng-harmony-annotate")
-      }
-      if (answers.packages["ng-harmony-module"]) {
-        dependencies.push("jspm install github:ng-harmony/ng-harmony-module")
-      }
-      if (answers.packages["ng-harmony-evented"]) {
-        dependencies.push("jspm install github:ng-harmony/ng-harmony-evented")
-      }
+      answers.packages.forEach(function (package) {
+        dependencies.push("jspm install github:ng-harmony/" + package);
+      });
 
       gulp.src([
         __dirname + '/templates/**'
