@@ -108,7 +108,6 @@ gulp.task('default', function (done) {
       name   : 'packages',
       message: 'By default I include the ng-harmony module. What else do you want to include?', 
       choices: [
-        new inquirer.separator (" ~~~~~~~ packages ~~~~~~~ "),
         {
           name: "ng-harmony",
           checked: true,
