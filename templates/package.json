@@ -2,7 +2,7 @@
   "name": "<%= name %>",
   "version": "<%= appVersion %>",
   "description": "<%= appDescription %>",
-  "main": "src/app.js",
+  "main": "app/src/app.js",
   "author": {
     "name": "<%= authorName %>",
     "email": "<%= authorEmail %>"
@@ -16,8 +16,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "serve src/ --port 8080",
-    "build": "jspm bundle-sfx app dist/app.min.js --minify --inject --skip-source-maps"
+    "start": "serve app/ --port 8080",
+    "build": "jspm bundle-sfx app/src/app dist/app.min.js --minify --inject"
   },
   "readmeFilename": "README.md",
   "homepage": "https://github.com/<%= userName %>/<%= name %>",
@@ -26,7 +26,7 @@
   },
   "jspm": {
     "directories": {
-      "baseURL": "src"
+      "baseURL": "app/src"
     },
     "dependencies": {},
     "devDependencies": {

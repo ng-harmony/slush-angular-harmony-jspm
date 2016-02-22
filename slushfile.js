@@ -101,6 +101,30 @@ gulp.task('default', function (done) {
       message: 'What is the github username?',
       default: defaults.userName
     }, {
+      name   : 'moduleName',
+      message: 'What is the module name?'
+    }, {
+      type   : 'checkbox',
+      name   : 'packages'
+      message: 'By default I include the ng-harmony module. What else do you want to include?', 
+      choices: [
+        new inquirer.separator (" ~~~~~~~ packages ~~~~~~~ "),
+        {
+          name: "ng-harmony",
+          checked: true,
+          disabled: true
+        },
+        {
+          name: "ng-harmony-annotate",
+        },
+        {
+          name: "ng-harmony-module",
+        },
+        {
+          name: "ng-harmony-evented"
+        }
+      ]
+    }, {
       type   : 'confirm',
       name   : 'moveon',
       message: 'Continue?'
@@ -129,7 +153,7 @@ gulp.task('default', function (done) {
           } //end if
           if (answers.sourceCustomization) {
             file.dirname = file.dirname.replace(
-              /^(src|views)\b|\/(scripts|styles|partials)\b/g,
+              /^(src|views|assets|dist)\b|\/(scripts|styles|partials|components|controllers|services)\b/g,
               function (match, $1, $2) {
                 return dirMap[$1 || $2] || $1 || $2;
               });

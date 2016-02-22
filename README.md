@@ -1,4 +1,6 @@
-# slush-jspm
+# Currently in testing!
+
+# slush-angular-harmony-jspm
 
 [![Build Status](https://travis-ci.org/NathanielInman/slush-jspm.svg?branch=master)](https://travis-ci.org/NathanielInman/slush-jspm) [![dependency Status](https://david-dm.org/NathanielInman/slush-jspm/status.svg?style=flat)](https://david-dm.org/NathanielInman/slush-jspm) [![devDependency Status](https://david-dm.org/NathanielInman/slush-jspm/dev-status.svg?style=flat)](https://david-dm.org/NathanielInman/slush-jspm#info=devDependencies)
 
