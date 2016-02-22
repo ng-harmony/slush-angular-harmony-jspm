@@ -1,5 +1,5 @@
 {
-  "name": "<%= name %>",
+  "name": "<%= appName %>",
   "version": "<%= appVersion %>",
   "description": "<%= appDescription %>",
   "main": "app/src/app.js",
@@ -9,10 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<%= userName %>/<%= name %>.git"
+    "url": "https://github.com/<%= userName %>/<%= appName %>.git"
   },
   "bugs": {
-    "url": "https://github.com/<%= userName %>/<%= name %>/issues"
+    "url": "https://github.com/<%= userName %>/<%= appName %>/issues"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,7 +20,7 @@
     "build": "jspm bundle-sfx app/src/app dist/app.min.js --minify --inject"
   },
   "readmeFilename": "README.md",
-  "homepage": "https://github.com/<%= userName %>/<%= name %>",
+  "homepage": "https://github.com/<%= userName %>/<%= appName %>",
   "devDependencies": {
     "serve": "^1.4.0"
   },
@@ -28,7 +28,7 @@
     "directories": {
       "baseURL": "app/src"
     },
-    "dependencies": "<%= dependencies %>",
+    "dependencies": {},
     "devDependencies": {
       "babel": "npm:babel-core@^6.1.2",
       "babel-runtime": "npm:babel-runtime@^6.0.14",

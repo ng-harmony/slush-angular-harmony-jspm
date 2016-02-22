@@ -11,7 +11,7 @@
     "angular",
     "jspm"
   ],
-  "homepage": "https://github.com/<%= userName %>/<%= moduleName %>",
+  "homepage": "https://github.com/<%= userName %>/<%= appName %>",
   "moduleType": [
     "es6"
   ],
