@@ -75,9 +75,11 @@ var handleDefaults = function (answers) {
   return answers;
 };
 
-var deps = [];
+var _deps = {
+  packages: []
+};
 
-gulp.task('postinstall', shell(deps, { interactive: true }));
+gulp.task('postinstall', shell.task(_deps.packages, { interactive: true }));
 
 // The default gulp task is ran when slush is executed
 gulp.task('main', function (done) {
@@ -144,9 +146,9 @@ gulp.task('main', function (done) {
         'src'     : answers.sourceBase
       };
 
-      deps.concat(["npm install --save-dev jspm", "bower install", "jspm install", "jspm install github:ng-harmony/ng-harmony"]);
+      _deps.packages.concat(["npm install --save-dev jspm", "bower install", "jspm install", "jspm install github:ng-harmony/ng-harmony"]);
       answers.packages.forEach(function (package) {
-        deps.push("jspm install github:ng-harmony/" + package);
+        _deps.packages.push("jspm install github:ng-harmony/" + package);
       });
 
       gulp.src([
