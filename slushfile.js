@@ -8,7 +8,8 @@ var gulp      = require('gulp'),
     rename    = require('gulp-rename'),
     template  = require('gulp-template'),
     spawn     = require('child_process').spawn,
-    gutil     = require('gulp-util');
+    gutil     = require('gulp-util'),
+    shell     = require('gulp-shell');
 
 var defaults = (function () {
   var homeDir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE,
@@ -129,7 +130,7 @@ gulp.task('default', function (done) {
       message: 'Continue?'
     }],
     function (answers) {
-      var dirMap;
+      var dirMap, dependencies;
       
       if (!answers.moveon) return done();
       answers.file = { relative: '<%= file.relative %>' };
@@ -138,6 +139,18 @@ gulp.task('default', function (done) {
       dirMap = {
         'src'     : answers.sourceBase
       };
+
+      dependencies = ["bower install", "jspm install github:ng-harmony/ng-harmony"];
+      if (answers.packages["ng-harmony-annotate"]) {
+        dependencies.push("jspm install github:ng-harmony/ng-harmony-annotate")
+      }
+      if (answers.packages["ng-harmony-module"]) {
+        dependencies.push("jspm install github:ng-harmony/ng-harmony-module")
+      }
+      if (answers.packages["ng-harmony-evented"]) {
+        dependencies.push("jspm install github:ng-harmony/ng-harmony-evented")
+      }
+
       gulp.src([
         __dirname + '/templates/app/**'
       ])
@@ -164,7 +177,7 @@ gulp.task('default', function (done) {
         .on('finish', function () {
           var a = answers,
               dirs = [];
-              
+
           if (a.sourceCustomization) {
             a.sourceBase !== 'src/' && dirs.push('./src');
             a.sourceScripts !== 'scripts/' && dirs.push('./' + a.sourceBase + 'scripts');
@@ -186,5 +199,8 @@ gulp.task('default', function (done) {
             gutil.log(gutil.colors.red(data));
           });
         });
+        .pipe(shell(dependencies, {
+          templateData: {}
+        }));
     });
 });
