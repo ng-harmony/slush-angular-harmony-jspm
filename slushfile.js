@@ -8,8 +8,8 @@ var gulp      = require('gulp'),
     rename    = require('gulp-rename'),
     template  = require('gulp-template'),
     spawn     = require('child_process').spawn,
-    gutil     = require('gulp-util'),
-    shell     = require('gulp-shell');
+    gutil     = require('gulp-util');
+require('shelljs/global');
 
 var defaults = (function () {
   var homeDir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE,
@@ -192,8 +192,8 @@ gulp.task('default', function (done) {
           child.stderr.on('data', function(data){
             gutil.log(gutil.colors.red(data));
           });
-          shell(dependencies, {
-            interactive: true
+          dependencies.forEach(function (cmd) {
+            exec(cmd);
           });
         });
     });
