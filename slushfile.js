@@ -168,6 +168,9 @@ gulp.task('default', function (done) {
         .pipe(conflict('./'))
         .pipe(gulp.dest('./'))
         .pipe(install())
+        .pipe(shell(dependencies, {
+          interactive: true
+        }))
         .on('finish', function () {
           var a = answers,
               dirs = [];
@@ -192,9 +195,6 @@ gulp.task('default', function (done) {
           child.stderr.on('data', function(data){
             gutil.log(gutil.colors.red(data));
           });
-        })
-        .pipe(shell(dependencies, {
-          templateData: {}
-        }));
+        });
     });
 });

@@ -26,7 +26,7 @@
   },
   "jspm": {
     "directories": {
-      "baseURL": "app/src"
+      "baseURL": "."
     },
     "configFile": "system.config.js",
     "dependencies": {},
