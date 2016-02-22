@@ -152,7 +152,7 @@ gulp.task('default', function (done) {
       }
 
       gulp.src([
-        __dirname + '/templates/app/**'
+        __dirname + '/templates/**'
       ])
         .pipe(template(answers, {
           interpolate: /<%=\s([\s\S]+?)%>/g
