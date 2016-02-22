@@ -105,7 +105,7 @@ gulp.task('default', function (done) {
       message: 'What is the module name?'
     }, {
       type   : 'checkbox',
-      name   : 'packages'
+      name   : 'packages',
       message: 'By default I include the ng-harmony module. What else do you want to include?', 
       choices: [
         new inquirer.separator (" ~~~~~~~ packages ~~~~~~~ "),
