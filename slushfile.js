@@ -196,6 +196,5 @@ gulp.task('default', function (done) {
             interactive: true
           });
         });
-)
     });
 });
