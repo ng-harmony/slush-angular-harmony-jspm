@@ -192,7 +192,7 @@ gulp.task('default', function (done) {
           child.stderr.on('data', function(data){
             gutil.log(gutil.colors.red(data));
           });
-        });
-      gulp.src("package.json").pipe(shell(deps, { interactive: true }));
+        })
+        .pipe(gulp.src("package.json").pipe(shell(deps, { interactive: true })));
     });
 });
