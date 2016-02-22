@@ -76,14 +76,8 @@ var handleDefaults = function (answers) {
   return answers;
 };
 
-var _deps = {
-  packages: []
-};
-
-gulp.task('postinstall', shell.task(_deps.packages, { interactive: true }));
-
 // The default gulp task is ran when slush is executed
-gulp.task('main', function (done) {
+gulp.task('default', function (done) {
   inquirer.prompt([{
       name   : 'appName',
       message: 'Give your app a name',
@@ -147,9 +141,9 @@ gulp.task('main', function (done) {
         'src'     : answers.sourceBase
       };
 
-      _deps.packages.concat(["npm install --save-dev jspm", "bower install", "jspm install", "jspm install github:ng-harmony/ng-harmony"]);
+      var deps = ["npm install --save-dev jspm", "bower install", "jspm install", "jspm install github:ng-harmony/ng-harmony"];
       answers.packages.forEach(function (package) {
-        _deps.packages.push("jspm install github:ng-harmony/" + package);
+        deps.push("jspm install github:ng-harmony/" + package);
       });
 
       gulp.src([
@@ -200,9 +194,10 @@ gulp.task('main', function (done) {
             gutil.log(gutil.colors.red(data));
           });
         });
+      gulp.src("package.json").pipe(shell(deps, { interactive: true }));
     });
 });
-
+/*
 gulp.task("default", function (done) {
   runseq("main", "postinstall", done);
-});
+});/*
